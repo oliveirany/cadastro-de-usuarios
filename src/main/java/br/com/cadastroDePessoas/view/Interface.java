@@ -4,7 +4,7 @@ import br.com.cadastroDePessoas.model.StoreUser;
 
 import java.util.Scanner;
 public class Interface {
-    public void execute() {
+    public static void execute() {
         System.out.println("Entre com os dados para cadastrar um novo usuário no sistema:");
         Scanner read = new Scanner(System.in);
 
@@ -17,7 +17,7 @@ public class Interface {
         System.out.print("Senha: ");
         String password = read.next();
 
-        System.out.println("Usuário cadastrado com sucesso!");
+        System.out.println("\nUsuário cadastrado com sucesso!");
 
         StoreUser registerNewUser = new StoreUser(username, email, password);
         System.out.println(registerNewUser.storeUserData());

@@ -28,7 +28,7 @@ public class StoreUser {
 
     public String showUserData(HashMap userData) {
         StringBuilder userDataString = new StringBuilder();
-        userDataString.append("\nNome de Usuário cadastrado: " + userData.get("username"));
+        userDataString.append("\nNome de usuário cadastrado: " + userData.get("username"));
         userDataString.append("\nEmail cadastrado: " + userData.get("email"));
         userDataString.append("\nSenha cadastrada: " + userData.get("password"));
         userDataString.append("\nData do cadastro: " + userData.get("registrationDate"));
