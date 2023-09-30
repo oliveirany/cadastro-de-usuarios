@@ -1,6 +1,6 @@
-package br.com.cadastroDePessoas.view;
+package br.com.cadastroDeUsuarios.view;
 
-import br.com.cadastroDePessoas.model.StoreUser;
+import br.com.cadastroDeUsuarios.model.StoreUser;
 
 import java.util.Scanner;
 public class Interface {
