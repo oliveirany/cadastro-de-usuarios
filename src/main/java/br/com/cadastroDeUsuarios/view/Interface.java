@@ -19,7 +19,14 @@ public class Interface {
         String password = read.next();
 
         UserRegistration registerUser = new UserRegistration(username, email, password);
-        String message = registerUser.register();
+        String message;
+
+        try {
+            message = registerUser.register();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
         System.out.println("\n" + message);
 
 
