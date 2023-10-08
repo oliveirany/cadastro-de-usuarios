@@ -1,8 +1,11 @@
 package br.com.cadastroDeUsuarios.model;
 
-import br.com.cadastroDeUsuarios.database.User;
+import br.com.cadastroDeUsuarios.database.entities.Category;
+import br.com.cadastroDeUsuarios.database.entities.User;
+import br.com.cadastroDeUsuarios.database.dao.UserDAO;
+import br.com.cadastroDeUsuarios.database.util.JPAUtil;
 
-public class UserRegistration {
+public class UserRegistration extends JPAUtil{
     private String username;
     private String email;
     private String password;
@@ -12,12 +15,16 @@ public class UserRegistration {
         this.password = password;
     }
 
-    public String register() {
-        User newUser = new User();
-        newUser.setUsername(username);
-        newUser.setEmail(email);
-        newUser.setPassword(password);
+    public String register() throws Exception {
+        try {
+            User newUser = new User(username, email, password, Category.STANDARD);
 
-        return "Usuario cadastrado com sucesso!";
+            UserDAO dao = new UserDAO(getEntityManager());
+            dao.register(newUser);
+
+            return "Usuario cadastrado com sucesso!";
+        } catch (Exception e) {
+            throw new Exception("Erro ao cadastrar usuário: " + e);
+        }
     }
 }
